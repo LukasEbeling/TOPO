@@ -22,13 +22,13 @@ namespace hls4ml_topo_HHbbWW_1mu_v2 {
 // hls-fpga-machine-learning insert layer-config
 // munet_fc1
 struct config2 : nnet::dense_config {
-    static const unsigned n_in = 20;
+    static const unsigned n_in = 21;
     static const unsigned n_out = 64;
     static const unsigned io_type = nnet::io_parallel;
     static const unsigned strategy = nnet::latency;
     static const unsigned reuse_factor = 1;
-    static const unsigned n_zeros = 1024;
-    static const unsigned n_nonzeros = 256;
+    static const unsigned n_zeros = 1075;
+    static const unsigned n_nonzeros = 269;
     static const unsigned multiplier_limit = DIV_ROUNDUP(n_in * n_out, reuse_factor) - n_zeros / reuse_factor;
     static const bool store_weights_in_bram = false;
     typedef model_default_t accum_t;

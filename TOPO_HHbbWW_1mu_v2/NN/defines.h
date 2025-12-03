@@ -10,7 +10,7 @@
 namespace hls4ml_topo_HHbbWW_1mu_v2 {
 
 // hls-fpga-machine-learning insert numbers
-static const int N_INPUT_1_1 = 20;
+static const int N_INPUT_1_1 = 21;
 static const int N_LAYER_2 = 64;
 static const int N_LAYER_5 = 32;
 static const int N_LAYER_8 = 32;
@@ -45,7 +45,7 @@ typedef ap_uint<1> layer11_index;
 typedef ap_fixed<16,6> result_t;
 typedef ap_fixed<18,8> munet_sigmoid_table_t;
 
-extern weight2_t w2[1280];
+extern weight2_t w2[1344];
 extern weight5_t w5[2048];
 extern weight8_t w8[1024];
 extern weight11_t w11[32];
