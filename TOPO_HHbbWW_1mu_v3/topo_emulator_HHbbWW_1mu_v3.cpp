@@ -17,8 +17,8 @@ private:
     {
         for (int i = 0; i < N_INPUT_1_1; i++)
         {
-        double tmp0 = unscaled[i] - hls4ml_topo_HHbbWW_1mu_v3::bias[i];
-        double tmp1 = tmp0 / hls4ml_topo_HHbbWW_1mu_v3::norm[i];
+        double tmp0 = unscaled[i] - bias[i];
+        double tmp1 = tmp0 / norm[i];
         scaled[i] = static_cast<input_t>(tmp1);
         }
     }
@@ -38,7 +38,7 @@ public:
     virtual void read_result(std::any result) {
         result_t *result_p = std::any_cast<result_t*>(result);
         for (int i = 0; i < N_LAYER_11; ++i)
-            result_p[i] = _result[i];
+            result_p[i] = int((_result[i] + min) / range * 1023);
     }
 };
 
