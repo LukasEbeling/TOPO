@@ -9,7 +9,7 @@
 
 namespace hls4ml_topo_HHbbWW_1mu_v3 {
 
-void topo_HHbbWW_1mu_v2(
+void topo_HHbbWW_1mu_v3(
     input_t dropout_input[N_INPUT_1_1],
     result_t layer11_out[N_LAYER_11]
 );
