@@ -7,14 +7,14 @@
 namespace hls4ml_topo_HHbbWW_1mu_v3 {
 
 void topo_HHbbWW_1mu_v3(
-    input_t munet_fc1_input[N_INPUT_1_1],
-    result_t layer13_out[N_LAYER_11]
+    input_t dropout_input[N_INPUT_1_1],
+    result_t layer11_out[N_LAYER_11]
 ) {
 
     // hls-fpga-machine-learning insert IO
-    #pragma HLS ARRAY_RESHAPE variable=munet_fc1_input complete dim=0
-    #pragma HLS ARRAY_PARTITION variable=layer13_out complete dim=0
-    #pragma HLS INTERFACE ap_vld port=munet_fc1_input,layer13_out 
+    #pragma HLS ARRAY_RESHAPE variable=dropout_input complete dim=0
+    #pragma HLS ARRAY_PARTITION variable=layer11_out complete dim=0
+    #pragma HLS INTERFACE ap_vld port=dropout_input,layer11_out 
     #pragma HLS PIPELINE 
 
 
@@ -26,7 +26,7 @@ void topo_HHbbWW_1mu_v3(
 
     layer2_t layer2_out[N_LAYER_2];
     #pragma HLS ARRAY_PARTITION variable=layer2_out complete dim=0
-    nnet::dense<input_t, layer2_t, config2>(munet_fc1_input, layer2_out, w2, b2); // munet_fc1
+    nnet::dense<input_t, layer2_t, config2>(dropout_input, layer2_out, w2, b2); // munet_fc1
 
     layer4_t layer4_out[N_LAYER_2];
     #pragma HLS ARRAY_PARTITION variable=layer4_out complete dim=0
@@ -48,11 +48,7 @@ void topo_HHbbWW_1mu_v3(
     #pragma HLS ARRAY_PARTITION variable=layer10_out complete dim=0
     nnet::relu<layer8_t, layer10_t, relu_config10>(layer8_out, layer10_out); // munet_activation3
 
-    layer11_t layer11_out[N_LAYER_11];
-    #pragma HLS ARRAY_PARTITION variable=layer11_out complete dim=0
-    nnet::dense<layer10_t, layer11_t, config11>(layer10_out, layer11_out, w11, b11); // munet_output
-
-    nnet::sigmoid<layer11_t, result_t, sigmoid_config13>(layer11_out, layer13_out); // munet_sigmoid
+    nnet::dense<layer10_t, result_t, config11>(layer10_out, layer11_out, w11, b11); // munet_output
 
 }
 
