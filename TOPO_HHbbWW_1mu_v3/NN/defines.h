@@ -38,12 +38,11 @@ typedef ap_fixed<16,7> bias8_t;
 typedef ap_uint<1> layer8_index;
 typedef ap_ufixed<8,0,AP_RND_CONV,AP_SAT> layer10_t;
 typedef ap_fixed<18,8> munet_activation3_table_t;
-typedef ap_fixed<16,6> layer11_t;
+typedef ap_fixed<16,6> result_t;
 typedef ap_fixed<16,7> weight11_t;
 typedef ap_fixed<16,7> bias11_t;
 typedef ap_uint<1> layer11_index;
 typedef ap_fixed<16,6> result_t;
-typedef ap_fixed<18,8> munet_sigmoid_table_t;
 
 extern weight2_t w2[1344];
 extern weight5_t w5[2048];
