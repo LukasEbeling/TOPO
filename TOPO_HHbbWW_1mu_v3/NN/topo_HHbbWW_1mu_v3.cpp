@@ -8,13 +8,13 @@ namespace hls4ml_topo_HHbbWW_1mu_v3 {
 
 void topo_HHbbWW_1mu_v3(
     input_t munet_fc1_input[N_INPUT_1_1],
-    result_t layer13_out[N_LAYER_11]
+    result_t layer11_out[N_LAYER_11]
 ) {
 
     // hls-fpga-machine-learning insert IO
     #pragma HLS ARRAY_RESHAPE variable=munet_fc1_input complete dim=0
-    #pragma HLS ARRAY_PARTITION variable=layer13_out complete dim=0
-    #pragma HLS INTERFACE ap_vld port=munet_fc1_input,layer13_out 
+    #pragma HLS ARRAY_PARTITION variable=layer11_out complete dim=0
+    #pragma HLS INTERFACE ap_vld port=munet_fc1_input,layer11_out 
     #pragma HLS PIPELINE 
 
 
@@ -48,9 +48,7 @@ void topo_HHbbWW_1mu_v3(
     #pragma HLS ARRAY_PARTITION variable=layer10_out complete dim=0
     nnet::relu<layer8_t, layer10_t, relu_config10>(layer8_out, layer10_out); // munet_activation3
 
-    layer11_t layer11_out[N_LAYER_11];
-    #pragma HLS ARRAY_PARTITION variable=layer11_out complete dim=0
-    nnet::dense<layer10_t, layer11_t, config11>(layer10_out, layer11_out, w11, b11); // munet_output
+    nnet::dense<layer10_t, result_t, config11>(layer10_out, layer11_out, w11, b11); // munet_output
 
 }
 
