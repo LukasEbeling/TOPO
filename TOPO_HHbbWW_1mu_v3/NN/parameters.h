@@ -1,8 +1,8 @@
 #ifndef PARAMETERS_H_
 #define PARAMETERS_H_
 
-#include "ap_int.h"
 #include "ap_fixed.h"
+#include "ap_int.h"
 
 #include "nn_utils/nnet_code_gen.h"
 #include "nn_utils/nnet_helpers.h"
@@ -83,8 +83,8 @@ struct config8 : nnet::dense_config {
     static const unsigned io_type = nnet::io_parallel;
     static const unsigned strategy = nnet::latency;
     static const unsigned reuse_factor = 1;
-    static const unsigned n_zeros = 819;
-    static const unsigned n_nonzeros = 205;
+    static const unsigned n_zeros = 820;
+    static const unsigned n_nonzeros = 204;
     static const unsigned multiplier_limit = DIV_ROUNDUP(n_in * n_out, reuse_factor) - n_zeros / reuse_factor;
     static const bool store_weights_in_bram = false;
     typedef model_default_t accum_t;
@@ -121,15 +121,6 @@ struct config11 : nnet::dense_config {
     typedef layer11_index index_t;
     template<class x_T, class y_T>
     using product = nnet::product::mult<x_T, y_T>;
-};
-
-// munet_sigmoid
-struct sigmoid_config13 : nnet::activ_config {
-    static const unsigned n_in = 1;
-    static const unsigned table_size = 1024;
-    static const unsigned io_type = nnet::io_parallel;
-    static const unsigned reuse_factor = 1;
-    typedef munet_sigmoid_table_t table_t;
 };
 
 } // namespace hls4ml_topo_HHbbWW_1mu_v3
