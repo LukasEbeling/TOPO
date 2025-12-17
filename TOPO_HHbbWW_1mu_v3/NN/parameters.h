@@ -17,7 +17,7 @@
 #include "defines.h"
 #include "weights.h"
 
-namespace hls4ml_topo_HHbbWW_1mu_v2 {
+namespace hls4ml_topo_HHbbWW_1mu_v3 {
 
 // hls-fpga-machine-learning insert layer-config
 // munet_fc1
@@ -132,6 +132,6 @@ struct sigmoid_config13 : nnet::activ_config {
     typedef munet_sigmoid_table_t table_t;
 };
 
-} // namespace hls4ml_topo_HHbbWW_1mu_v2
+} // namespace hls4ml_topo_HHbbWW_1mu_v3
 
 #endif

@@ -7,7 +7,7 @@
 #include <cstddef>
 #include <cstdio>
 
-namespace hls4ml_topo_HHbbWW_1mu_v2 {
+namespace hls4ml_topo_HHbbWW_1mu_v3 {
 
 // hls-fpga-machine-learning insert numbers
 static const int N_INPUT_1_1 = 21;
@@ -54,5 +54,5 @@ extern bias5_t b5[32];
 extern bias8_t b8[32];
 extern bias11_t b11[1];
 
-} // namespace hls4ml_topo_HHbbWW_1mu_v2
+} // namespace hls4ml_topo_HHbbWW_1mu_v3
 #endif

@@ -19,8 +19,8 @@
 
 //from https://gitlab.cern.ch/lebeling/topo-deployed/-/tree/2025-06-24-v2/model/quantised/hls_model/firmware?ref_type=heads
 
-#ifndef TOPO_v2_H_
-#define TOPO_v2_H_
+#ifndef TOPO_v3_H_
+#define TOPO_v3_H_
 
 #include "ap_int.h"
 #include "ap_fixed.h"
@@ -28,13 +28,13 @@
 
 #include "defines.h"
 
-namespace hls4ml_topo_HHbbWW_1mu_v2 {
+namespace hls4ml_topo_HHbbWW_1mu_v3 {
 
-void topo_HHbbWW_1mu_v2(
+void topo_HHbbWW_1mu_v3(
     input_t munet_fc1_input[N_INPUT_1_1],
     result_t layer13_out[N_LAYER_11]
 );
 
-} // namespace hls4ml_topo_HHbbWW_1mu_v2
+} // namespace hls4ml_topo_HHbbWW_1mu_v3
 
 #endif

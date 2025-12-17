@@ -1,12 +1,12 @@
-#include "NN/topo_HHbbWW_1mu_v2.h" //include of the top level of HLS model
+#include "NN/topo_HHbbWW_1mu_v3.h" //include of the top level of HLS model
 #include "emulator.h" //include of emulator modeling
 #include <any>
 #include "ap_fixed.h"
 #include "scaling.h"
 
-using namespace hls4ml_topo_HHbbWW_1mu_v2;
+using namespace hls4ml_topo_HHbbWW_1mu_v3;
 
-class topo_emulator_HHbbWW_1mu_v2 : public hls4mlEmulator::Model {
+class topo_emulator_HHbbWW_1mu_v3 : public hls4mlEmulator::Model {
 
 private:
     unscaled_t _unscaled_input[N_INPUT_1_1];
@@ -17,8 +17,8 @@ private:
     {
         for (int i = 0; i < N_INPUT_1_1; i++)
         {
-        double tmp0 = unscaled[i] - hls4ml_topo_HHbbWW_1mu_v2::bias[i];
-        double tmp1 = tmp0 / hls4ml_topo_HHbbWW_1mu_v2::norm[i];
+        double tmp0 = unscaled[i] - hls4ml_topo_HHbbWW_1mu_v3::bias[i];
+        double tmp1 = tmp0 / hls4ml_topo_HHbbWW_1mu_v3::norm[i];
         scaled[i] = static_cast<input_t>(tmp1);
         }
     }
@@ -32,7 +32,7 @@ public:
     }
 
     virtual void predict() {
-        topo_HHbbWW_1mu_v2(_scaled_input, _result);
+        topo_HHbbWW_1mu_v3(_scaled_input, _result);
     }
   
     virtual void read_result(std::any result) {
@@ -43,7 +43,7 @@ public:
 };
 
 extern "C" hls4mlEmulator::Model* create_model() {
-    return new topo_emulator_HHbbWW_1mu_v2;
+    return new topo_emulator_HHbbWW_1mu_v3;
 }
 
 extern "C" void destroy_model(hls4mlEmulator::Model* m) {

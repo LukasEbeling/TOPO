@@ -13,7 +13,7 @@ LD_FLAGS := -L$(EMULATOR_EXTRAS)/lib64 -lemulator_interface
 
 INCLUDES += -I$(CURDIR)/NN
 
-topo_HHbbWW_1mu_v2.so: topo_emulator_HHbbWW_1mu_v2.o topo_HHbbWW_1mu_v2.o
+topo_HHbbWW_1mu_v3.so: topo_emulator_HHbbWW_1mu_v3.o topo_HHbbWW_1mu_v3.o
 	$(CXX) $(CXXFLAGS) $(LD_FLAGS) -shared $^ -o $@
 
 %.o: NN/%.cpp
@@ -23,4 +23,4 @@ topo_HHbbWW_1mu_v2.so: topo_emulator_HHbbWW_1mu_v2.o topo_HHbbWW_1mu_v2.o
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	rm topo_emulator_HHbbWW_1mu_v2.o topo_HHbbWW_1mu_v2.o topo_HHbbWW_1mu_v2.so
+	rm topo_emulator_HHbbWW_1mu_v3.o topo_HHbbWW_1mu_v3.o topo_HHbbWW_1mu_v3.so
