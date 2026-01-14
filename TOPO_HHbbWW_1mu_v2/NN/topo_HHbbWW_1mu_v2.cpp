@@ -50,9 +50,11 @@ void topo_HHbbWW_1mu_v2(
 
     layer11_t layer11_out[N_LAYER_11];
     #pragma HLS ARRAY_PARTITION variable=layer11_out complete dim=0
-    nnet::dense<layer10_t, layer11_t, config11>(layer10_out, layer11_out, w11, b11); // munet_output
+    
+    nnet::dense<layer10_t, layer11_t, config11>(layer10_out, layer13_out, w11, b11); // munet_output
 
-    nnet::sigmoid<layer11_t, result_t, sigmoid_config13>(layer11_out, layer13_out); // munet_sigmoid
+    // nnet::dense<layer10_t, layer11_t, config11>(layer10_out, layer11_out, w11, b11); // munet_output
+    // nnet::sigmoid<layer11_t, result_t, sigmoid_config13>(layer11_out, layer13_out); // munet_sigmoid
 
 }
 

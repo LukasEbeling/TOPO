@@ -1,13 +1,15 @@
 CPP_STANDARD := c++17
 CXXFLAGS := -O3 -fPIC -std=$(CPP_STANDARD)
 PREFIX:=.
-EMULATOR_EXTRAS := ../../hls4mlEmulatorExtras
+# EMULATOR_EXTRAS := /cvmfs/cms.cern.ch/el8_amd64_gcc11/external/hls4mlEmulatorExtras/1.1.1-6933fcc7cdb4cdd5a649bd6579151d1b/
+EMULATOR_EXTRAS := /cvmfs/cms.cern.ch/el9_amd64_gcc13/external/hls4mlEmulatorExtras/1.1.4-303c71b78d29ea8c7700bea5268fd011/
 AP_TYPES := $(EMULATOR_EXTRAS)/include/ap_types
-HLS_ROOT := ../../hls
+# HLS_ROOT := /cvmfs/cms.cern.ch/el8_amd64_gcc11/external/hls/2019.08-fd724004387c2a6770dc3517446d30d9
+HLS_ROOT := /cvmfs/cms.cern.ch/el9_amd64_gcc13/external/hls/2025.05-bf66465791178392d0ccc731a47dd76b
 HLS4ML_INCLUDE := $(EMULATOR_EXTRAS)/include/hls4ml
 INCLUDES := -I$(HLS4ML_INCLUDE) -I$(AP_TYPES) -I$(HLS_ROOT)/include
-LD_FLAGS := -L$(EMULATOR_EXTRAS)/lib64 -lemulator_interface
-ALL_VERSIONS:=TOPO_HHbbWW_1mu_v1/topo_HHbbWW_1mu_v1.so TOPO_HHbbWW_1mu_v2/topo_HHbbWW_1mu_v2.so
+LD_FLAGS := -L$(EMULATOR_EXTRAS)/lib64 -lemulator_interface -ldl
+ALL_VERSIONS:=TOPO_HHbbWW_1mu_v2/topo_HHbbWW_1mu_v2.so TOPO_HHbbWW_1mu_v3/topo_HHbbWW_1mu_v3.so
 
 .DEFAULT_GOAL := all
 .PHONY: all clean install
