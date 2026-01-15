@@ -28,9 +28,7 @@ private:
 public: 
     virtual void prepare_input(std::any input) {
         unscaled_t *unscaled_input_p = std::any_cast<unscaled_t*>(input);
-        for (int i = 0; i < N_INPUT_1_1; i++)
-            _unscaled_input[i] = std::any_cast<unscaled_t>(unscaled_input_p[i]);
-        _scaleNNInputs(_unscaled_input, _scaled_input);
+        _scaleNNInputs(unscaled_input_p, _scaled_input);
     }
 
     virtual void predict() {
