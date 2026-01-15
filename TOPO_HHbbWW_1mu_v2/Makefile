@@ -1,7 +1,7 @@
 
 .PHONY: clean
 
-topo_HHbbWW_1mu_v2.so: topo_emulator_HHbbWW_1mu_v2.o topo_HHbbWW_1mu_v2.o
+topo_HHbbWW_1mu_v2.so: topo_emulator_HHbbWW_1mu.o topo_HHbbWW_1mu_v2.o
 	$(CXX) $(CXXFLAGS) $(LD_FLAGS) -shared $^ -o $@
 
 %.o: NN/%.cpp
@@ -11,4 +11,4 @@ topo_HHbbWW_1mu_v2.so: topo_emulator_HHbbWW_1mu_v2.o topo_HHbbWW_1mu_v2.o
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	rm topo_emulator_HHbbWW_1mu_v2.o topo_HHbbWW_1mu_v2.o topo_HHbbWW_1mu_v2.so
+	rm topo_emulator_HHbbWW_1mu.o topo_HHbbWW_1mu_v2.o topo_HHbbWW_1mu_v2.so
