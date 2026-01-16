@@ -72,5 +72,6 @@ void topo_HHbbWW_1mu_v2(
 
     nnet::sigmoid<munet_output_result_t, result_t, sigmoid_config13>(layer11_out, layer13_out); // munet_sigmoid
 
+    // layer13_out[0] = static_cast<result_t>(layer11_out[0]);
 }
 
