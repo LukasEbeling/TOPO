@@ -19,16 +19,15 @@ private:
     {
         for (int i = 0; i < N_INPUT_1_1; i++)
         {
-        double tmp0 = unscaled[i] - standardscaler::bias[i];
-        double tmp1 = tmp0 / standardscaler::norm[i];
-        scaled[i] = static_cast<input_t>(tmp1);
+            double tmp0 = unscaled[i] - standardscaler::bias[i];
+            double tmp1 = tmp0 / standardscaler::norm[i];
+            scaled[i] = static_cast<input_t>(tmp1);
         }
     }
 
 public: 
     virtual void prepare_input(std::any input) {
         unscaled_t *unscaled_input_p = std::any_cast<unscaled_t*>(input);
-        std::cout << "Scaling inputs..." << std::endl;
         _scaleNNInputs(unscaled_input_p, _scaled_input);
     }
 
