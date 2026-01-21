@@ -1,4 +1,4 @@
-#include "NN/topo_HHbbWW_1mu_v4.h" //include of the top level of HLS model
+#include "NN/topo_HHbbWW_1mu_v3.h" //include of the top level of HLS model
 #include "emulator.h" //include of emulator modeling
 #include <any>
 #include "ap_fixed.h"
@@ -9,7 +9,6 @@ using namespace standardscaler;
 class topo_emulator_HHbbWW_1mu : public hls4mlEmulator::Model {
 
 private:
-    typedef ap_fixed<23,23> unscaled_t;
     static const int N_INPUT_1_1 = 21;
     static const int N_LAYER_11 = 1;
     unscaled_t _unscaled_input[N_INPUT_1_1];
@@ -33,7 +32,7 @@ public:
     }
 
     virtual void predict() {
-        topo_HHbbWW_1mu_v4(_scaled_input, _result);
+        topo_HHbbWW_1mu_v3(_scaled_input, _result);
     }
   
     virtual void read_result(std::any result) {
