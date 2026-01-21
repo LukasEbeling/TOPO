@@ -10,4 +10,7 @@ First model trained on di-Higgs production events (single muon + b jets final st
 Revised model after including `hwQual` feature for muons.
 
 **V3**
-Revised model after exlcuding final sigmoid application. 
+Model with fewer layers (but with sigmoid) to meet latency requirements
+
+**V4**
+Retrained model after exlcuding final sigmoid application. Work in Progress.

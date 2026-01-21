@@ -7,7 +7,7 @@ HLS_ROOT := ../../hls
 HLS4ML_INCLUDE := $(EMULATOR_EXTRAS)/include/hls4ml
 INCLUDES := -I$(HLS4ML_INCLUDE) -I$(AP_TYPES) -I$(HLS_ROOT)/include
 LD_FLAGS := -L$(EMULATOR_EXTRAS)/lib64 -lemulator_interface
-ALL_VERSIONS:=TOPO_HHbbWW_1mu_v1/topo_HHbbWW_1mu_v1.so TOPO_HHbbWW_1mu_v2/topo_HHbbWW_1mu_v2.so
+ALL_VERSIONS:=TOPO_HHbbWW_1mu_v2/topo_HHbbWW_1mu_v2.so TOPO_HHbbWW_1mu_v3/topo_HHbbWW_1mu_v3.so
 
 .DEFAULT_GOAL := all
 .PHONY: all clean install
@@ -25,4 +25,4 @@ install: all
 	$(MAKE) -C $(@D) INCLUDES="$(INCLUDES)" LD_FLAGS="$(LD_FLAGS)" CXXFLAGS="$(CXXFLAGS)"
 
 clean:
-	rm topo_*.so $(ALL_VERSIONS)
+	rm topo_*.so TOPO_HHbbWW_1mu_v*/*.o TOPO_HHbbWW_1mu_v*/*.so
