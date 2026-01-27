@@ -1,5 +1,5 @@
 # TOPO
-Repository for topological trigger hls4ml models
+Repository for topological trigger hls4ml models. As of now, only model v5 makes use of proper namespaces. Use older versions for testing only. 
 
 ##Versioning
 
