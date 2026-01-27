@@ -23,9 +23,10 @@ private:
                                 input_t scaled[N_INPUT_SIZE])
     {
         for (int i = 0; i < N_INPUT_SIZE; i++) {
-            ap_fixed<32,23> tmp0 = unscaled[i] - topo_offsets[i]; //use ap_fixed<32,23> to have fractional bits for bit shifting 
+            ap_fixed<32,23> tmp0 = unscaled[i]; //more fractional bits for bit shifting, match uGT firmware hls wrapper
+            tmp0 = tmp0 - topo_offsets[i]; 
             input_t tmp1 = tmp0 >> topo_shift[i];
-            scaled[i] = (input_t) tmp1;
+            scaled[i] = tmp1;
         }
     }
 
