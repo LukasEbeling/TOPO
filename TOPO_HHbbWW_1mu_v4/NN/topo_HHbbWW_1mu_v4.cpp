@@ -60,9 +60,9 @@ void topo_HHbbWW_1mu_v4(
 
     nnet::sigmoid<munet_output_result_t, result_t, sigmoid_config10>(layer8_out, layer10_out); // munet_sigmoid
 
-    if (layer8_out[0] > 31) layer10_out[0] = 31;
-    else if (layer8_out[0] < -32) layer10_out[0] = -32;
-    else layer10_out[0] = layer8_out[0];
+    if (layer8_out[0] > 31) layer10_out[0] = (result_t) 31;
+    else if (layer8_out[0] < -32) layer10_out[0] = (result_t) -32;
+    else layer10_out[0] = (result_t) layer8_out[0];
 
 }
 
