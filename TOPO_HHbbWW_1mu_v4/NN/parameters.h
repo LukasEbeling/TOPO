@@ -104,15 +104,6 @@ struct config8 : nnet::dense_config {
     using product = nnet::product::mult<x_T, y_T>;
 };
 
-// munet_sigmoid
-struct sigmoid_config10 : nnet::activ_config {
-    static const unsigned n_in = 1;
-    static const unsigned table_size = 1024;
-    static const unsigned io_type = nnet::io_parallel;
-    static const unsigned reuse_factor = 1;
-    typedef munet_sigmoid_table_t table_t;
-};
-
 
 
 #endif
